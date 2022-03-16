@@ -17,10 +17,10 @@ public class FirstTest {
         given().baseUri("http://bhdtest.endava.com")
                 .port(8080)
                 .basePath("petclinic")
-                .log().all()
+                
                 .when()
                 .get("/api/owners")
-                .prettyPeek()
+                
                 .then()
                 .statusCode(HttpStatus.SC_OK);
     }
@@ -38,10 +38,10 @@ public class FirstTest {
                 .basePath("petclinic")
                 .contentType(ContentType.JSON)
                 .body(owner)
-                .log().all()
+                
                 .when()
                 .post("/api/owners")
-                .prettyPeek();
+                ;
 
         //Then
         response.then()
@@ -66,10 +66,10 @@ public class FirstTest {
                 .port(8080)
                 .basePath("petclinic")
                 .pathParam("ownerID", 5)
-                .log().all()
+                
                 .when()
                 .get("/api/owners/{ownerID}")
-                .prettyPeek()
+                
                 .then()
                 .statusCode(HttpStatus.SC_OK);
     }
@@ -80,10 +80,10 @@ public class FirstTest {
                 .port(8080)
                 .basePath("petclinic")
                 .pathParam("ownerID", 5)
-                .log().all()
+                
                 .when()
                 .delete("/api/owners/{ownerID}")
-                .prettyPeek()
+                
                 .then()
                 .statusCode(HttpStatus.SC_NO_CONTENT);
     }
@@ -92,10 +92,10 @@ public class FirstTest {
         given().baseUri("http://bhdtest.endava.com")
                 .port(8080)
                 .basePath("petclinic")
-                .log().all()
+                
                 .when()
                 .get("/api/pets")
-                .prettyPeek()
+                
                 .then()
                 .statusCode(HttpStatus.SC_OK);
     }

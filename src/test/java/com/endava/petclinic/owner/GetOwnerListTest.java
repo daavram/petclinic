@@ -26,7 +26,7 @@ public class GetOwnerListTest extends TestBaseClass {
 
         //THEN
         // first validation model
-        response.prettyPeek().then().statusCode(HttpStatus.SC_OK)
+        response.then().statusCode(HttpStatus.SC_OK)
                 .body("find{it->it.id==%s}.firstName", withArgs(ownerID), is(owner.getFirstName()));
 
         // second validation model

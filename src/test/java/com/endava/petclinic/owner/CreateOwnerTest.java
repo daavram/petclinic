@@ -22,7 +22,7 @@ public class CreateOwnerTest extends TestBaseClass {
         Response response = ownerClient.createOwner(owner);
 
         // THEN
-        response.prettyPeek().then().statusCode(HttpStatus.SC_CREATED)
+        response.then().statusCode(HttpStatus.SC_CREATED)
                 .body("id", is(notNullValue()));
     }
 

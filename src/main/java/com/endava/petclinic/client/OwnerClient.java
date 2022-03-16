@@ -1,5 +1,7 @@
 package com.endava.petclinic.client;
 
+import com.endava.petclinic.filters.AuthenticationFilter;
+import com.endava.petclinic.filters.LogFilter;
 import com.endava.petclinic.model.Owner;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -11,7 +13,8 @@ public class OwnerClient {
 
     public Response createOwner(Owner owner) {
 
-        return given().baseUri(getBaseUri())
+        return given().filters(new AuthenticationFilter(), new LogFilter())
+                .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
                 .contentType(ContentType.JSON)
@@ -22,7 +25,8 @@ public class OwnerClient {
 
     public Response getOwnerByID(Long ownerId) {
 
-        return given().baseUri(getBaseUri())
+        return given().filters(new AuthenticationFilter(), new LogFilter())
+                .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
                 .pathParam("ownerId", ownerId)
@@ -31,14 +35,16 @@ public class OwnerClient {
 
     public Response getOwnerList() {
 
-        return given().baseUri(getBaseUri())
+        return given().filters(new AuthenticationFilter(), new LogFilter())
+                .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
                 .get("/api/owners");
     }
 
     public Response deleteOwnerByID(Long ownerId) {
-        return given().baseUri(getBaseUri())
+        return given().filters(new AuthenticationFilter(), new LogFilter())
+                .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
                 .pathParam("ownerID", ownerId)
@@ -46,7 +52,8 @@ public class OwnerClient {
     }
 
     public Response updateOwnerByID(Long ownerId, Owner owner) {
-        return given().baseUri(getBaseUri())
+        return given().filters(new AuthenticationFilter(), new LogFilter())
+                .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
                 .body(owner)
