@@ -10,7 +10,8 @@ import java.util.List;
 
 import static io.restassured.RestAssured.withArgs;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.is;
 
 public class GetOwnerListTest extends TestBaseClass {
     @Test

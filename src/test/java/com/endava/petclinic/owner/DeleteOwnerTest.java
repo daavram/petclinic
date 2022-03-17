@@ -2,7 +2,6 @@ package com.endava.petclinic.owner;
 
 import com.endava.petclinic.TestBaseClass;
 import com.endava.petclinic.model.Owner;
-import io.restassured.internal.RequestSpecificationImpl;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Test;

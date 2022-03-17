@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
 import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
-import util.EnvReader;
 
 public class TestReporterExtension implements BeforeTestExecutionCallback, AfterTestExecutionCallback {
 
