@@ -2,6 +2,7 @@ package com.endava.petclinic;
 
 import com.endava.petclinic.client.OwnerClient;
 import com.endava.petclinic.client.PetClient;
+import com.endava.petclinic.client.PetTypeClient;
 import com.endava.petclinic.extension.TestReporterExtension;
 import com.endava.petclinic.fixture.PetclinicFixture;
 import com.endava.petclinic.services.DBService;
@@ -16,4 +17,5 @@ public class TestBaseClass {
     protected TestDataProvider testDataProvider = new TestDataProvider();
     protected PetclinicFixture fixture = new PetclinicFixture();
     protected DBService db = new DBService();
+    protected PetTypeClient petTypeClient = new PetTypeClient();
 }

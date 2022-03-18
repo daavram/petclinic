@@ -8,23 +8,27 @@ import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Test;
 
-public class CreatePetTest extends TestBaseClass {
+
+public class DeletePetTest extends TestBaseClass {
 
     @Test
-    public void shouldCreatePet() {
-        //Given
+    public void shouldDeletePet() {
+        //GIVEN
         Owner owner = fixture.createOwner()
                 .getOwner();
 
         PetType petType = new PetType();
         petType.setId(5L);
         Pet pet = testDataProvider.getPet(owner, petType);
+        Response createPetResponse = petClient.createPet(pet);
+        createPetResponse.then().statusCode(HttpStatus.SC_CREATED);
+        Long petId = createPetResponse.body().jsonPath().getLong("id");
 
-        //When
-        Response response = petClient.createPet(pet);
+        //WHEN
+        Response response = petClient.deletePetByID(petId);
 
-        //Then
-        response.then().statusCode(HttpStatus.SC_CREATED);
-
+        //THEN
+        response.then().statusCode(HttpStatus.SC_NO_CONTENT);
     }
+
 }

@@ -40,4 +40,12 @@ public class TestDataProvider {
 
         return pet;
     }
+
+    public PetType getPetTypes() {
+
+        PetType petType = new PetType();
+        petType.setName(faker.animal().name());
+
+        return petType;
+    }
 }
